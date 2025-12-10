@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Училищна Платформа</title>
+    <style>
+        :root {
+            --inchworm: #B2EC5D;
+            --inchworm-dark: #9cd94f;
+            --inchworm-light: #d9f8a7;
+            --text-dark: #1a1a1a;
+            --text-light: #ffffff;
+            --bg-light: #f7f7f7;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--inchworm), var(--inchworm-dark));
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        header h1 {
+            margin: 0;
+            color: var(--text-dark);
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        nav a {
+            margin-left: 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') center/cover no-repeat;
+            height: 370px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+        }
+
+        .hero h2 {
+            position: relative;
+            font-size: 38px;
+            font-weight: 700;
+        }
+
+        /* Content */
+        .content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-left: 6px solid var(--inchworm);
+            padding-left: 10px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--inchworm-dark);
+        }
+
+        .read-more {
+            margin-top: 12px;
+            display: inline-block;
+            padding: 10px 16px;
+            background: var(--inchworm);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .read-more:hover {
+            background: var(--inchworm-dark);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            background: linear-gradient(135deg, var(--inchworm-dark), var(--inchworm));
+            text-align: center;
+            padding: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Училищна Платформа</h1>
+    <nav>
+        <a href="#">Начало</a>
+        <a href="#">Материали</a>
+        <a href="#">Тестове</a>
+        <a href="#">Профил</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h2>Добре дошли в училищната платформа</h2>
+</div>
+
+<div class="content">
+    <h2 class="section-title">Последни материали</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Урок по биология</h3>
+            <p>Въведение в генетиката и ДНК структурата...</p>
+            <a class="read-more" href="#">Прочети повече</a>
+        </div>
+
+        <div class="card">
+            <h3>Тест по история</h3>
+            <p>Провери знанията си за древните цивилизации...</p>
+            <a class="read-more" href="#">Прочети повече</a>
+        </div>
+
+        <div class="card">
+            <h3>Материал по математика</h3>
+            <p>Обяснение на функции, графики и уравнения...</p>
+            <a class="read-more" href="#">Прочети повече</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2025 Училищна Платформа — Всички права запазени
+</footer>
+
+</body>
+</html>

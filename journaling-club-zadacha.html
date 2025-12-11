@@ -1,190 +1,215 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Училищна Платформа</title>
-    <style>
-        :root {
-            --inchworm: #B2EC5D;
-            --inchworm-dark: #9cd94f;
-            --inchworm-light: #d9f8a7;
-            --text-dark: #1a1a1a;
-            --text-light: #ffffff;
-            --bg-light: #f7f7f7;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Училищен вестник – Йордан Йовков</title>
+  <style>
+    /* --------------------------------------------------
+       Училищен вестник — стилове
+       Запазих всички текстове и контакти както са дадени.
+       Използвам различни нюанси на зелено за по-интересен дизайн.
+       -------------------------------------------------- */
 
-        body {
-            margin: 0;
-            font-family: "Poppins", sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-        }
+    :root{
+      --green-900:#1f3a1f; /* тъмно */
+      --green-700:#2c5f2d; /* текущо използвано */
+      --green-500:#4ea86a; /* средно */
+      --green-300:#9fd6a3; /* светло */
+      --green-100:#eaf7ea; /* много светло */
+      --accent:#b2ec5d; /* inchworm */
+      --paper:#fbfbf8;
+      --text:#0f1720;
+      --muted:#5a6b5a;
+      --max-width:1100px;
+    }
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--inchworm), var(--inchworm-dark));
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+    /* Reset */
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,var(--green-100),var(--paper));color:var(--text);-webkit-font-smoothing:antialiased}
 
-        header h1 {
-            margin: 0;
-            color: var(--text-dark);
-            font-size: 28px;
-            font-weight: 700;
-        }
+    /* Header */
+    header{background:linear-gradient(90deg,var(--green-900),var(--green-700));color:white;padding:18px 24px;position:sticky;top:0;z-index:40;box-shadow:0 6px 18px rgba(22,40,22,0.18)}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 18px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:54px;height:54px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--green-500));display:flex;align-items:center;justify-content:center;color:var(--green-900);font-weight:700;font-size:18px;box-shadow:0 6px 14px rgba(0,0,0,0.12)}
+    h1{margin:0;font-size:20px;line-height:1}
 
-        nav a {
-            margin-left: 20px;
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.2s;
-        }
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:#fff;text-decoration:none;font-weight:600;opacity:0.95}
+    nav a:hover{color:var(--accent);transform:translateY(-1px)}
 
-        nav a:hover {
-            opacity: 0.7;
-        }
+    /* Hero */
+    .hero{margin-top:14px;background:linear-gradient(180deg,rgba(46,95,46,0.12),rgba(46,95,46,0.05));border-radius:14px;padding:36px 24px;display:flex;gap:18px;align-items:center}
+    .hero-left{flex:1}
+    .hero h2{margin:0;color:var(--green-900);font-size:34px}
+    .hero p{margin:8px 0 0;color:var(--muted);font-size:16px}
+    .hero-cta{margin-top:14px}
+    .btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:var(--green-900);font-weight:700;text-decoration:none}
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            background: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') center/cover no-repeat;
-            height: 370px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
+    /* Decorative sidebar box */
+    .hero-card{width:260px;background:linear-gradient(180deg,var(--green-300),#d8f1cc);padding:16px;border-radius:12px;box-shadow:0 8px 30px rgba(35,70,35,0.08)}
+    .hero-card h4{margin:0 0 8px;color:var(--green-900)}
+    .small{font-size:14px;color:var(--muted)}
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.45);
-        }
+    /* Main sections */
+    main{max-width:var(--max-width);margin:26px auto;padding:0 18px}
+    .grid{display:grid;grid-template-columns:2fr 1fr;gap:26px}
 
-        .hero h2 {
-            position: relative;
-            font-size: 38px;
-            font-weight: 700;
-        }
+    /* Articles list */
+    .articles{background:rgba(255,255,255,0.9);padding:18px;border-radius:12px}
+    .section-title{display:flex;align-items:center;gap:12px;margin:0 0 12px}
+    .section-title .marker{width:8px;height:36px;background:linear-gradient(180deg,var(--green-700),var(--accent));border-radius:6px}
+    .section-title h3{margin:0;font-size:20px;color:var(--green-900)}
 
-        /* Content */
-        .content {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+    .article-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .article{background:var(--paper);padding:14px;border-radius:10px;border-left:6px solid rgba(76,160,96,0.12);box-shadow:0 6px 18px rgba(18,30,18,0.06);transition:transform .22s ease,box-shadow .22s ease}
+    .article:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(18,30,18,0.12)}
+    .article h4{margin:0 0 8px;color:var(--green-700);font-size:18px}
+    .meta{font-size:13px;color:var(--muted);margin-bottom:8px}
+    .article p{margin:0;color:#2e3f2e}
+    .read-more{display:inline-block;margin-top:10px;padding:8px 12px;border-radius:8px;background:transparent;border:1px dashed var(--green-500);color:var(--green-700);font-weight:700;text-decoration:none}
+    .read-more:hover{background:var(--green-100)}
 
-        .section-title {
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            border-left: 6px solid var(--inchworm);
-            padding-left: 10px;
-        }
+    /* Right column - highlights / about */
+    .aside{display:flex;flex-direction:column;gap:16px}
+    .card{background:linear-gradient(180deg,var(--green-100),#ffffff);padding:14px;border-radius:10px;box-shadow:0 6px 20px rgba(18,30,18,0.06)}
+    .card h4{margin:0 0 8px;color:var(--green-700)}
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
+    /* Team section */
+    .team{margin-top:18px;padding:18px;border-radius:12px;background:linear-gradient(180deg,var(--green-300),#e9f6e7)}
+    .team p{margin:0;color:#234723}
 
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: 0.25s ease;
-        }
+    /* Footer */
+    footer{margin-top:28px;background:linear-gradient(90deg,var(--green-700),var(--green-900));color:white;padding:20px 0;border-top:4px solid rgba(255,255,255,0.04)}
+    .footer-inner{max-width:var(--max-width);margin:0 auto;padding:0 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .contacts{font-size:14px}
+    .credits{font-size:13px;opacity:0.95}
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
+    /* Responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+      .hero{flex-direction:column;align-items:flex-start}
+      .hero-card{width:100%}
+    }
 
-        .card h3 {
-            margin-top: 0;
-            color: var(--inchworm-dark);
-        }
-
-        .read-more {
-            margin-top: 12px;
-            display: inline-block;
-            padding: 10px 16px;
-            background: var(--inchworm);
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            transition: 0.2s;
-        }
-
-        .read-more:hover {
-            background: var(--inchworm-dark);
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 50px;
-            background: linear-gradient(135deg, var(--inchworm-dark), var(--inchworm));
-            text-align: center;
-            padding: 20px;
-            font-weight: 600;
-        }
-    </style>
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>Училищна Платформа</h1>
-    <nav>
+  <header>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+      <div class="brand">
+        <div class="logo">В</div>
+        <div>
+          <h1>Училищен вестник – Йордан Йовков</h1>
+          <div style="font-size:12px;color:rgba(255,255,255,0.85)">СУ „Йордан Йовков“ — Сливен</div>
+        </div>
+      </div>
+      <nav aria-label="Основна навигация">
         <a href="#">Начало</a>
-        <a href="#">Материали</a>
-        <a href="#">Тестове</a>
-        <a href="#">Профил</a>
-    </nav>
-</header>
-
-<div class="hero">
-    <h2>Добре дошли в училищната платформа</h2>
-</div>
-
-<div class="content">
-    <h2 class="section-title">Последни материали</h2>
-
-    <div class="cards">
-        <div class="card">
-            <h3>Урок по биология</h3>
-            <p>Въведение в генетиката и ДНК структурата...</p>
-            <a class="read-more" href="#">Прочети повече</a>
-        </div>
-
-        <div class="card">
-            <h3>Тест по история</h3>
-            <p>Провери знанията си за древните цивилизации...</p>
-            <a class="read-more" href="#">Прочети повече</a>
-        </div>
-
-        <div class="card">
-            <h3>Материал по математика</h3>
-            <p>Обяснение на функции, графики и уравнения...</p>
-            <a class="read-more" href="#">Прочети повече</a>
-        </div>
+        <a href="#">Новини</a>
+        <a href="#">Интервюта</a>
+        <a href="#">Галерия</a>
+        <a href="#">За нас</a>
+      </nav>
     </div>
-</div>
+  </header>
 
-<footer>
-    © 2025 Училищна Платформа — Всички права запазени
-</footer>
+  <div class="container" style="margin-top:16px">
+    <section class="hero">
+      <div class="hero-left">
+        <h2>Добре дошли в училищния вестник!</h2>
+        <p>Всичко най-важно от ежедневието, инициативите и успехите на учениците в СУ „Йордан Йовков“ — Сливен.</p>
+        <div class="hero-cta"><a class="btn" href="#">Последни новини</a></div>
+      </div>
+      <aside class="hero-card">
+        <h4>Актуално</h4>
+        <div class="small">Отворихме STEM център — повече снимки и интервюта в секцията „Новини“.</div>
+      </aside>
+    </section>
+  </div>
+
+  <main>
+    <div class="container">
+      <div class="grid">
+
+        <section class="articles">
+          <div class="section-title"><span class="marker"></span><h3>Последни статии</h3></div>
+
+          <div class="article-list">
+
+            <article class="article">
+              <div class="meta">10 декември 2025 — Събитие</div>
+              <h4>Откриване на STEM център</h4>
+              <p>Нашето училище официално откри модерно оборудван STEM център, който дава възможност на учениците да работят по иновативни проекти и да развиват дигиталните си умения.</p>
+              <a class="read-more" href="#">Прочети повече</a>
+            </article>
+
+            <article class="article">
+              <div class="meta">3 октомври 2025 — Инициатива</div>
+              <h4>Участие в Европейската седмица на програмирането</h4>
+              <p>Ученици от различни класове се включиха в инициативата EU Code Week, като създаваха мини проекти и участваха в работилници, където обменяха идеи и опит.</p>
+              <a class="read-more" href="#">Прочети повече</a>
+            </article>
+
+            <article class="article">
+              <div class="meta">21 май 2025 — Отличие</div>
+              <h4>Награда от национално състезание</h4>
+              <p>Ученик от нашето училище спечели престижно отличие на национално състезание, демонстрирайки отлични знания и умения в своята област.</p>
+              <a class="read-more" href="#">Прочети повече</a>
+            </article>
+
+          </div>
+        </section>
+
+        <aside class="aside">
+          <div class="card">
+            <h4>За екипа</h4>
+            <p>Журналистическият клуб към СУ „Йордан Йовков“ – Сливен събира ученици, които имат желание да разказват истории, да отразяват училищния живот и да развиват уменията си в писането, фотографията и медийната култура. Нашата мисия е да покажем успехите, инициативите и таланта на учениците и да изградим силна училищна общност чрез качествена и мотивираща журналистика.</p>
+          </div>
+
+          <div class="card">
+            <h4>Бързи връзки</h4>
+            <ul style="margin:10px 0 0;padding:0 0 0 18px;color:var(--muted)">
+              <li>Архив на броевете</li>
+              <li>Галерия със събития</li>
+              <li>Записване в клубa</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>Контакти</h4>
+            <div class="small">Email: info-2000114@edu.mon.bg</div>
+            <div class="small">Телефон директор: 044/ 66 72 44</div>
+            <div class="small">Пом. директор: 044/ 66 76 84</div>
+            <div class="small">Гл. счетоводител: 044/ 66 74 68</div>
+          </div>
+
+        </aside>
+
+      </div>
+
+      <!-- По-голяма секция 'За екипа' под списъка със статии -->
+      <section class="team">
+        <h3 style="margin:0 0 10px;color:var(--green-700)">Екип</h3>
+        <p>Журналистическият клуб към СУ „Йордан Йовков“ – Сливен работи по съвременни формати: текст, фотография, подкаст и видео. Включваме ученици от различни класове, които чрез медиите развиват критично мислене, работа в екип и творчески подход към задачите. Целта ни е да даваме глас на училищната общност и да документираме важните моменти от учебния живот.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="contacts">
+        <div><strong>Контакти:</strong></div>
+        <div>Email: info-2000114@edu.mon.bg</div>
+        <div>Телефон директор: 044/ 66 72 44</div>
+        <div>Пом. директор: 044/ 66 76 84 | Гл. счетоводител: 044/ 66 74 68</div>
+      </div>
+      <div class="credits">Екипът на журналистическия клуб създаден от Мартин Маринчев, Николай Станчев, Венцислав Колев.</div>
+    </div>
+  </footer>
 
 </body>
 </html>
